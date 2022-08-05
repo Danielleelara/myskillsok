@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome Danielle</Text>
+      <Text style={styles.title}>Welcome Daniell</Text>
       <TextInput
         placeholder="New skyll"
         placeholderTextColor="#555"
