@@ -7,8 +7,8 @@ import {
   Platform,
   FlatList,
 } from 'react-native';
-import {Button} from '../components/Button';
-import {ModalCase} from '../components/Modal';
+import {ButtonComponent} from '../components/Button';
+// import {ModalCase} from '../components/Modal';
 import {SkillCard} from '../components/SkillCard';
 
 export default function Home() {
@@ -21,14 +21,14 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome Daniell</Text>
+      <Text style={styles.title}>Welcome, Danielle</Text>
       <TextInput
         placeholder="New skyll"
         placeholderTextColor="#555"
         style={styles.input}
         onChangeText={setNewSkill}
       />
-      <Button onPress={handleAddNewSkill} />
+      <ButtonComponent onPress={handleAddNewSkill} />
       <Text style={[styles.title, {marginTop: 30, marginBottom: 20}]}>
         My Skills
       </Text>
@@ -37,6 +37,7 @@ export default function Home() {
         keyExtractor={item => item}
         renderItem={({item}) => <SkillCard skill={item} />}
       />
+      {/* <ModalCase /> */}
     </View>
   );
 }
