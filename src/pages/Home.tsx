@@ -7,6 +7,7 @@ import {
   Platform,
   FlatList,
   StatusBar,
+  Alert,
 } from 'react-native';
 import {ButtonComponent} from '../components/Button';
 // import {ModalCase} from '../components/Modal';
@@ -29,6 +30,11 @@ export default function Home() {
       name: newSkill,
     };
     setMySkills(oldState => [...oldState, data]);
+  }
+
+  function handleRemoveSkill(id: string) {
+    Alert.alert('Deseja excluir essa skill?');
+    setMySkills(oldState => oldState.filter(skill => skill.id !== id));
   }
 
   useEffect(() => {
@@ -65,7 +71,12 @@ export default function Home() {
       <FlatList
         data={mySkills}
         keyExtractor={item => item.id}
-        renderItem={({item}) => <SkillCard skill={item.name} />}
+        renderItem={({item}) => (
+          <SkillCard
+            skill={item.name}
+            onPress={() => handleRemoveSkill(item.id)}
+          />
+        )}
       />
       {/* <ModalCase /> */}
     </View>
@@ -76,8 +87,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#121015',
-    padding: 50,
-    paddingHorizontal: 20,
+    paddingVertical: 70,
+    paddingHorizontal: 30,
   },
   title: {
     color: '#fff',
