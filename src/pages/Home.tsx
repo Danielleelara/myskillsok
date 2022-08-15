@@ -54,7 +54,11 @@ export default function Home() {
         style={styles.input}
         onChangeText={setNewSkill}
       />
-      <ButtonComponent onPress={handleAddNewSkill} />
+      <ButtonComponent
+        onPress={handleAddNewSkill}
+        activeOpacity={0.7}
+        title="Add"
+      />
       <Text style={[styles.title, {marginTop: 30, marginBottom: 20}]}>
         My Skills
       </Text>
